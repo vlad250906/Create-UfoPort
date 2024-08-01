@@ -1,0 +1,16 @@
+{
+  "base_block": "create:cut_tuff",
+  "map_color": "gray_terracotta",
+  "name": "cut_tuff",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/cut/tuff_cut",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

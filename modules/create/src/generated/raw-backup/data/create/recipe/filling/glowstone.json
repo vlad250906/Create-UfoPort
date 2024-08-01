@@ -1,0 +1,25 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "amount": 2025,
+      "components": {
+        "create:bottle_type": {
+          "Bottle": "REGULAR"
+        },
+        "minecraft:potion_contents": {
+          "potion": "minecraft:night_vision"
+        }
+      },
+      "fluid": "create:potion"
+    },
+    {
+      "item": "create:cinder_flour"
+    }
+  ],
+  "results": [
+    {
+      "id": "minecraft:glowstone_dust"
+    }
+  ]
+}

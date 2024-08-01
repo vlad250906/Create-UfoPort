@@ -1,0 +1,39 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "priority": 951,
+  "package": "io.github.fabricators_of_create.porting_lib.tool.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "AxeItemMixin",
+    "BambooSaplingBlockMixin",
+    "BambooStalkBlockMixin",
+    "BeehiveBlockMixin",
+    "BlockMixin",
+    "BlockStateMixin",
+    "BuilderAccessor",
+    "FishingHookMixin",
+    "FishingRodItemMixin",
+    "HoeItemMixin",
+    "InvertedLootItemConditionAccessor",
+    "ItemStackMixin",
+    "LivingEntityMixin",
+    "PickaxeItemMixin",
+    "PlayerMixin",
+    "PumpkinBlockMixin",
+    "ShearsItemMixin",
+    "ShieldItemMixin",
+    "ShovelItemMixin",
+    "StopHoldingItemIfNoLongerAdmiringMixin",
+    "SwordItemMixin",
+    "TripWireBlockMixin"
+  ],
+  "client": [
+	"FishingHookRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1,
+    "maxShiftBy": 5
+  },
+  "refmap": "porting_lib-refmap.json"
+}

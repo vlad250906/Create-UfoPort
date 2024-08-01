@@ -1,0 +1,25 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.tropheusj.milk.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "BrewingRecipeRegistryAccessor",
+    "BrewingRecipeRegistryMixin",
+    "BrewingStandScreenHandlerPotionSlotMixin",
+    "CowEntityMixin",
+    "EntityMixin",
+    "GlassBottleItemMixin",
+    "MilkBucketItemMixin",
+    "PotionEntityMixin",
+    "pathfinding.BirdPathNodeMakerMixin",
+    "pathfinding.LandPathNodeMakerMixin",
+    "pathfinding.MobNavigationMixin"
+  ],
+  "client": [
+    "BackgroundRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "ars_nouveau"
+      ]
+    }
+  ],
+  "type": "create:cutting",
+  "ingredients": [
+    []
+  ],
+  "processingTime": 50,
+  "results": [
+    {
+      "id": "ars_nouveau:stripped_green_archwood_wood"
+    }
+  ]
+}

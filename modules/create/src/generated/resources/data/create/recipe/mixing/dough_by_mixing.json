@@ -1,0 +1,18 @@
+{
+  "type": "create:mixing",
+  "ingredients": [
+    {
+      "amount": 81000,
+      "components": {},
+      "fluid": "minecraft:water"
+    },
+    {
+      "tag": "c:wheat_flour"
+    }
+  ],
+  "results": [
+    {
+      "id": "create:dough"
+    }
+  ]
+}

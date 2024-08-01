@@ -1,0 +1,16 @@
+{
+  "base_block": "create:polished_cut_scorchia",
+  "map_color": "gray_terracotta",
+  "name": "polished_cut_scorchia",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/polished/scorchia_cut_polished",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

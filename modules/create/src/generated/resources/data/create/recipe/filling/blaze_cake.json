@@ -1,0 +1,18 @@
+{
+  "type": "create:filling",
+  "ingredients": [
+    {
+      "amount": 27000,
+      "components": {},
+      "fluid": "minecraft:lava"
+    },
+    {
+      "item": "create:blaze_cake_base"
+    }
+  ],
+  "results": [
+    {
+      "id": "create:blaze_cake"
+    }
+  ]
+}

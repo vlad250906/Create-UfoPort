@@ -1,0 +1,16 @@
+{
+  "base_block": "create:small_dripstone_bricks",
+  "map_color": "brown_terracotta",
+  "name": "small_dripstone_bricks",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/small_brick/dripstone_cut_small_brick",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

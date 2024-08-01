@@ -1,0 +1,10 @@
+{
+  "values": [
+    "create:copper_nugget",
+    "create:zinc_nugget",
+    "create:brass_nugget",
+    "create:experience_nugget",
+    "#c:nuggets/gold",
+    "#c:nuggets/iron"
+  ]
+}

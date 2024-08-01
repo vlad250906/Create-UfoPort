@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.fabricators_of_create.porting_lib.data.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "MinecraftMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "porting_lib-refmap.json"
+}

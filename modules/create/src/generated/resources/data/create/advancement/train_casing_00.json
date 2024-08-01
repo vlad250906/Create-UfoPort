@@ -1,0 +1,30 @@
+{
+  "parent": "create:sturdy_sheet",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "ddddd": ""
+      },
+      "trigger": "minecraft:train_casing_00_builtin"
+    }
+  },
+  "display": {
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.create.train_casing_00.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "create:railway_casing"
+    },
+    "title": {
+      "translate": "advancement.create.train_casing_00"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

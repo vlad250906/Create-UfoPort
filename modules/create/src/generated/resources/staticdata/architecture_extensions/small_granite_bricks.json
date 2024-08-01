@@ -1,0 +1,16 @@
+{
+  "base_block": "create:small_granite_bricks",
+  "map_color": "dirt",
+  "name": "small_granite_bricks",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/small_brick/granite_cut_small_brick",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

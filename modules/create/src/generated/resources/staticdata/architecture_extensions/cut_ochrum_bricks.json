@@ -1,0 +1,16 @@
+{
+  "base_block": "create:cut_ochrum_bricks",
+  "map_color": "yellow_terracotta",
+  "name": "cut_ochrum_bricks",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/brick/ochrum_cut_brick",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

@@ -1,0 +1,24 @@
+INFO:
+All changes should be appended to this file with each commit.
+On publish, it should be cleared to prepare for the next release cycle.
+No formatting, just plain text. CurseForge support for it is terrible.
+
+Change logging starts below:
+----------
+- update to patch F
+- fix schematic-printing deployers consuming double the resources they should (#1273)
+- fix invalid auto-shapeless recipes from appearing in EMI (#1148)
+- potential fix for a rare belt-related crash (#941)
+- potential fix for errors/crashes due to a missing locale (#1120)
+- fix emptying and filling recipes across JEI, REI, and EMI
+- fix crash with belts and funnels (#1246)
+- add in-world interaction EMI recipes for Create's fluid interactions (#1170)
+- fix some errors in REI with chanced recipe outputs (#646, #902)
+- fix a crash with Jade and Deployers (#1139)
+- fix the Wand of Symmetry always placing double slabs (#1086)
+- fix switched inputs in clipboard tooltip (#1212)
+- fix copycats having bad translucency (#1167)
+- fix intense fog underwater with Sodium (#1045)
+- fix piston extension poles being considered unmovable (#1307)
+- fix running on the edge of copycats producing missing texture particles (#1084)
+- fix backtanks being damageable (#1217)

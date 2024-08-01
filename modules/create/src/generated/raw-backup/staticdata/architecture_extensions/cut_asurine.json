@@ -1,0 +1,16 @@
+{
+  "base_block": "create:cut_asurine",
+  "map_color": "blue",
+  "name": "cut_asurine",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/cut/asurine_cut",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

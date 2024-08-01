@@ -1,0 +1,16 @@
+{
+  "base_block": "create:cut_scoria",
+  "map_color": "brown",
+  "name": "cut_scoria",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/cut/scoria_cut",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "id": "create_ufoport",
+  "version": "0.9.1-a",
+  "name": "Create",
+  "description": "Technology that empowers the player. \nPorted up to 1.21 by Vlad2509.",
+  "authors": [
+    "Fabricators of Create",
+    "Creators of Create",
+    "Pepper_Bell",
+    "AlphaMode",
+    "Jozufozu",
+    "TexTrue",
+    "DM-Earth",
+    "tterrag1098",
+    "TropheusJ",
+    "Vlad2509"
+  ],
+  "contact": {
+    "issues": "https://github.com/Fabricators-of-Create/Create/issues",
+    "sources": "https://github.com/Fabricators-of-Create/Create"
+  },
+  "license": "MIT",
+  "icon": "assets/create/logo.png",
+  "environment": "*",
+  "depends": {
+    "minecraft": "1.21",
+    "fabricloader": ">=0.16.0",
+    "fabric-api": ">=0.100.7+1.21",
+    "forgeconfigapiport": ">=21.0.5",
+    "java": ">=21"
+  },
+  "breaks": {
+    "optifabric": "*",
+    "colormatic": "<=3.1.1",
+    "iris": "*",
+    "sodium": "<=0.5.9",
+    "railways": "<1.5.3",
+    "create_enchantment_industry": "<1.2.16",
+    "create_interactive": "<=1.0.2-beta.1",
+    "createfabricfixes": "<=0.0.1",
+    "garnished": "<=1.6.3",
+    "extendedgears": "<=2.1.0",
+    "missions": "<=0.3",
+    "create_so": "<=1.6",
+    "createdieselgenerators": "<=2.1.3",
+    "create_power_loader": "<=1.4.2",
+    "createbigcannons": "<=0.5.3",
+    "copycats": "<=1.1.1",
+    "sliceanddice": "<=3.0.0",
+    "create_jetpack": "<=4.1.1",
+    "createorigins": "<=1.2.1",
+    "exposure": "<=1.4.0",
+    "cobblegen": "<=5.3.2"
+  }
+}

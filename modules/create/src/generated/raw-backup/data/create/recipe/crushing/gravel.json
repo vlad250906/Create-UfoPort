@@ -1,0 +1,22 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "minecraft:gravel"
+    }
+  ],
+  "processingTime": 250,
+  "results": [
+    {
+      "id": "minecraft:sand"
+    },
+    {
+      "chance": 0.1,
+      "id": "minecraft:flint"
+    },
+    {
+      "chance": 0.05,
+      "id": "minecraft:clay_ball"
+    }
+  ]
+}

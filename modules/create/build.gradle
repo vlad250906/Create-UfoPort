@@ -1,0 +1,10 @@
+dependencies {
+    
+}
+
+portingLib.addModuleDependency("flywheel")
+portingLib.addModuleDependency("milk")
+portingLib.addModuleDependency("porting_lib")
+portingLib.addModuleDependency("registrate_fabric")
+
+portingLib.enableDatagen()

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:blasting",
+  "category": "misc",
+  "cookingtime": 100,
+  "experience": 0.1,
+  "ingredient": {
+    "item": "create:crushed_raw_zinc"
+  },
+  "result": {
+    "id": "create:zinc_ingot"
+  }
+}

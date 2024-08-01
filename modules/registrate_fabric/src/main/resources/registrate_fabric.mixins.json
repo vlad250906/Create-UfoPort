@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.tterrag.registrate.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "LootTableProviderMixin",
+    "accessor.FluidBlockAccessor",
+    "accessor.LootContextParamSetsAccessor",
+    "accessor.LootTableProviderAccessor",
+    "accessor.SpawnEggItemAccessor",
+    "accessor.SpawnPlacementsAccessor"
+  ],
+  "client": [
+    "accessor.BlockEntityRenderersAccessor"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "registrate_fabric-refmap.json"
+}

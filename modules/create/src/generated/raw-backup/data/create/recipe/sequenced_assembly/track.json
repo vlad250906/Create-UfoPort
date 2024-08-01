@@ -1,0 +1,72 @@
+{
+  "type": "create:sequenced_assembly",
+  "ingredient": {
+    "tag": "create:sleepers"
+  },
+  "loops": 1,
+  "results": [
+    {
+      "id": "create:track"
+    }
+  ],
+  "sequence": [
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:incomplete_track"
+        },
+        [
+          {
+            "tag": "c:nuggets/iron"
+          },
+          {
+            "tag": "c:nuggets/zinc"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "id": "create:incomplete_track"
+        }
+      ]
+    },
+    {
+      "type": "create:deploying",
+      "ingredients": [
+        {
+          "item": "create:incomplete_track"
+        },
+        [
+          {
+            "tag": "c:nuggets/iron"
+          },
+          {
+            "tag": "c:nuggets/zinc"
+          }
+        ]
+      ],
+      "results": [
+        {
+          "id": "create:incomplete_track"
+        }
+      ]
+    },
+    {
+      "type": "create:pressing",
+      "ingredients": [
+        {
+          "item": "create:incomplete_track"
+        }
+      ],
+      "results": [
+        {
+          "id": "create:incomplete_track"
+        }
+      ]
+    }
+  ],
+  "transitionalItem": {
+    "id": "create:incomplete_track"
+  }
+}

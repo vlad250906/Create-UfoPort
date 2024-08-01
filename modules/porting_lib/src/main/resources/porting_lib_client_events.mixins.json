@@ -1,0 +1,21 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "priority": 951,
+  "package": "io.github.fabricators_of_create.porting_lib.client_events.mixin.client",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "ClientCommonPacketListenerImplMixin",
+    "ClientLevelMixin",
+    "ClientPacketListenerMixin",
+    "GameRendererMixin",
+    "LocalPlayerMixin",
+    "PlayerRendererMixin",
+    "SoundEngineMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1,
+    "maxShiftBy": 5
+  },
+  "refmap": "porting_lib-refmap.json"
+}

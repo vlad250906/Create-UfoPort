@@ -1,0 +1,4 @@
+{
+  "vertex": "flywheel:oriented.vert",
+  "fragment": "flywheel:block.frag"
+}

@@ -1,0 +1,26 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.fabricators_of_create.porting_lib.models.mixin",
+  "plugin": "io.github.fabricators_of_create.porting_lib.models.mixin.PortingLibModelsPlugin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "client.ScreenEffectRendererMixin",
+    "client.TextureSheetParticleAccessor",
+    "client.ParticleEngineMixin",
+    "client.TerrainParticle$ProviderMixin",
+    "client.TerrainParticleMixin",
+    "client.BlockModelDeserializerMixin",
+    "client.BlockModelMixin",
+    "client.ItemRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "BlockParticleOptionMixin",
+    "EntityMixin",
+    "LivingEntityMixin"
+  ],
+  "refmap": "porting_lib-refmap.json"
+}

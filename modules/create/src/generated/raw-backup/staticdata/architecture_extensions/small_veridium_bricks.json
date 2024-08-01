@@ -1,0 +1,16 @@
+{
+  "base_block": "create:small_veridium_bricks",
+  "map_color": "warped_nylium",
+  "name": "small_veridium_bricks",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/small_brick/veridium_cut_small_brick",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

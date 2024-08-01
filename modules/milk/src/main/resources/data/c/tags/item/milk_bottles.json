@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    {
+      "id": "milk:milk_bottle",
+      "required": false
+    },
+    {
+      "id": "milk:splash_milk_bottle",
+      "required": false
+    },
+    {
+      "id": "milk:lingering_milk_bottle",
+      "required": false
+    }
+  ]
+}

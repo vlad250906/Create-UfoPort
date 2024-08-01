@@ -1,0 +1,195 @@
+import io.github.fabricators_of_create.porting_lib_build.tasks.FmjExpander
+import io.github.fabricators_of_create.porting_lib_build.PortingLibBuildPlugin
+
+plugins {
+    id "fabric-loom"
+    id "io.github.p03w.machete" version "1.1.4" // automatic jar compressing on build
+
+    id "com.modrinth.minotaur" version "2.+" // modrinth publishing
+    id "com.matthewprenger.cursegradle" version "1.+" // curseforge publishing
+    id "maven-publish" // maven publishing
+}
+
+
+sourceCompatibility = JavaVersion.VERSION_21
+targetCompatibility = JavaVersion.VERSION_21
+
+archivesBaseName = "create-fabric-ufoport"
+group = project.maven_group
+
+String runNumber = "37483"
+String build = runNumber != null ? "build.$runNumber" : "local"
+version = "$mod_version+mc$minecraft_version"
+
+repositories {
+    maven { url = "https://maven.quiltmc.org/repository/release" } // QM
+    maven { url = "https://maven.parchmentmc.org" } // Parchment
+    maven { url = "https://maven.fabricmc.net/" } // FAPI, Loader
+    maven { url = "https://mvn.devos.one/snapshots/" } // Registrate, Forge Tags, Milk Lib
+    maven { url = "https://mvn.devos.one/releases/" } // Porting Lib
+    maven { // for Porting Lib: Mixin Extras, Fabric ASM
+        url = "https://jitpack.io/"
+        content { includeGroupAndSubgroups("com.github") }
+    }
+    maven { url = "https://maven.dblsaiko.net/" }
+    maven { url = "https://maven.vram.io/" }
+    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
+    maven { url = "https://maven.tterrag.com/" } // Flywheel
+    maven { url = "https://maven.shedaniel.me/" } // REI and deps
+    maven { url = "https://api.modrinth.com/maven" } // LazyDFU, Sodium, Sandwichable
+    maven { url = "https://maven.terraformersmc.com/" } // Mod Menu, Trinkets
+    maven { url = "https://squiddev.cc/maven" } // CC:T
+    maven { url = "https://modmaven.dev" } // Botania
+    maven { // Reach Entity Attributes
+        url = "https://maven.jamieswhiteshirt.com/libs-release"
+        content { includeGroup("com.jamieswhiteshirt") }
+    }
+    maven { url = "https://maven.ladysnake.org/releases" } // CCA, for Trinkets
+}
+
+
+
+// actual dependencies for Create
+def dependencies(DependencyHandler deps) {
+        deps.modImplementation("net.fabricmc.fabric-api:fabric-api:$fabric_version")
+
+	deps.modApi(deps.include("com.electronwill.night-config:core:$night_config_version"))
+    	deps.modApi(deps.include("com.electronwill.night-config:toml:$night_config_version"))
+    	deps.modCompileOnly("fuzs.forgeconfigapiport:forgeconfigapiport-fabric:$forge_config_api_port_version")
+    	deps.api(deps.include("com.google.code.findbugs:jsr305:$jsr305_version"))
+}
+
+// initial project setup
+def setup(DependencyHandler deps) {
+        deps.minecraft("com.mojang:minecraft:$minecraft_version")
+        deps.mappings(loom.layered {
+            it.mappings("org.quiltmc:quilt-mappings:$minecraft_version+build.$qm_version:intermediary-v2")
+            it.officialMojangMappings { nameSyntheticMembers = false }
+        })
+        deps.modImplementation("net.fabricmc:fabric-loader:$loader_version")
+}
+
+// setup mods that enhance development
+def devEnv(DependencyHandler deps) {
+        //deps.modLocalRuntime("com.terraformersmc:modmenu:$modmenu_version")
+        // have deprecated modules present at runtime only
+        deps.modLocalRuntime("net.fabricmc.fabric-api:fabric-api-deprecated:$fabric_version")
+}
+
+// setup mods that are available for compatibility reasons
+def compat(DependencyHandler deps) {
+
+        deps.modCompileOnly("com.terraformersmc:modmenu:$modmenu_version")
+        deps.modCompileOnly("maven.modrinth:sodium:$sodium_version")
+        deps.modCompileOnly("maven.modrinth:indium:$indium_version")
+        //deps.modCompileOnly("maven.modrinth:iris:$iris_version")
+
+        recipeViewers(deps)
+}
+
+// setup the three recipe viewer mods
+def recipeViewers(DependencyHandler deps) {
+        deps.modCompileOnly("mezz.jei:jei-$minecraft_version-fabric:$jei_version") { transitive = false }
+
+        deps.modLocalRuntime("mezz.jei:jei-$minecraft_version-fabric:$jei_version")
+}
+
+allprojects {
+	if (name == "buildSrc") return
+
+	apply plugin: "fabric-loom"
+	apply plugin: PortingLibBuildPlugin
+
+	group = "io.github.fabricators_of_create.Porting-Lib"
+
+	repositories {
+    		maven { url = "https://maven.quiltmc.org/repository/release" } // QM
+    		maven { url = "https://maven.parchmentmc.org" } // Parchment
+    		maven { url = "https://maven.fabricmc.net/" } // FAPI, Loader
+    		maven { url = "https://mvn.devos.one/snapshots/" } // Registrate, Forge Tags, Milk Lib
+    		maven { url = "https://mvn.devos.one/releases/" } // Porting Lib
+    		maven { // for Porting Lib: Mixin Extras, Fabric ASM
+        		url = "https://jitpack.io/"
+       			content { includeGroupAndSubgroups("com.github") }
+    		}
+    		maven { url = "https://maven.dblsaiko.net/" }
+    		maven { url = "https://maven.vram.io/" }
+    		maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
+    		maven { url = "https://maven.tterrag.com/" } // Flywheel
+    		maven { url = "https://api.modrinth.com/maven" } // LazyDFU, Sodium, Sandwichable
+    		maven { url = "https://maven.terraformersmc.com/" } // Mod Menu, Trinkets
+    		maven { url = "https://squiddev.cc/maven" } // CC:T
+    		maven { url = "https://modmaven.dev" } // Botania
+	}	
+
+	dependencies {
+    		setup(dependencies)
+    		devEnv(dependencies)
+    		compat(dependencies)
+    		dependencies(dependencies)
+	}
+
+	loom {
+		runs.configureEach {
+			ideConfigGenerated = true // loom doesn't gen runs for subprojects, unless this is set to true.
+			vmArg("-Dmixin.debug.export=true") // export all mixins
+			vmArg("-Dmixin.debug.strict.unique=true") // strictly enforce that @Unique things are private
+		}
+	}
+
+	processResources {
+		exclude("**/*.bbmodel", "**/*.lnk")
+    		duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+		Map<String, ?> properties = [
+				version: version,
+				loader_version: loader_version,
+				fabric_version: fabric_version,
+				minecraft_dependency: minecraft_dependency,
+				java_version: sourceCompatibility
+		]
+
+		properties.forEach(inputs::property)
+
+		if (project != rootProject) { // expand subproject FMJs. Must be done here for proper ordering.
+			filesMatching("fabric.mod.json", new FmjExpander.Applicator(project))
+		}
+
+		filesMatching("fabric.mod.json") {
+			expand properties
+		}
+	}
+
+	tasks.withType(JavaCompile).configureEach {
+    		it.options.release.set(21)
+	}
+}
+
+subprojects {
+	apply plugin: "maven-publish"
+
+	archivesBaseName = name
+
+	loom {
+		File aw = file("src/main/resources/${project.name}.accesswidener")
+		accessWidenerPath.set(aw)
+	}
+
+	tasks.withType(JavaCompile).configureEach {
+    		it.options.release.set(21)
+	}
+}
+
+subprojects.each {
+	remapJar.dependsOn("${it.path}:remapJar")
+}
+
+remapJar {
+	afterEvaluate {
+		subprojects.each {
+			nestedJars.from project("${it.path}").tasks.named("remapJar")
+		}
+	}
+}
+
+remapSourcesJar.enabled = false

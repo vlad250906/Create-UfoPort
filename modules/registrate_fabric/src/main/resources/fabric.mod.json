@@ -1,0 +1,44 @@
+{
+  "schemaVersion": 1,
+  "id": "registrate-fabric",
+  "version": "1.6.0",
+  "name": "Registrate for Fabric",
+  "description": "Fabric port of Registrate. Helper library to make creating and registering objects simpler. \nPorted up to 1.21 by Vlad2509",
+  "authors": [
+    "tterrag1098",
+    "Pepper_Bell",
+    "AlphaMode",
+    "TropheusJ",
+    "Vlad2509"
+  ],
+  "contact": {
+    "sources": "https://github.com/Fabricators-of-Create/Registrate-Refabricated"
+  },
+  "license": "MPL-2.0",
+  "icon": "assets/registrate-fabric/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "com.tterrag.registrate.fabric.ClientInit"
+    ],
+    "preLaunch": [
+      "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+    ]
+  },
+  "mixins": [
+    "registrate_fabric.mixins.json"
+  ],
+  "accessWidener": "registrate_fabric.accesswidener",
+  "depends": {
+	"minecraft": "1.21",
+    "fabricloader": ">=0.16.0",
+    "fabric-api": ">=0.100.7+1.21"
+  },
+  "custom": {
+    "modmenu": {
+      "badges": [
+        "library"
+      ]
+    }
+  }
+}

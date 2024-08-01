@@ -1,0 +1,29 @@
+{
+  "type": "create:mechanical_crafting",
+  "acceptMirrored": false,
+  "category": "misc",
+  "group": "undefined",
+  "key": {
+    "C": {
+      "item": "minecraft:copper_ingot"
+    },
+    "L": {
+      "item": "create:andesite_alloy"
+    },
+    "R": {
+      "item": "create:precision_mechanism"
+    },
+    "S": {
+      "item": "create:fluid_pipe"
+    }
+  },
+  "pattern": [
+    "LRSSS",
+    "CC   "
+  ],
+  "result": {
+    "count": 1,
+    "id": "create:potato_cannon"
+  },
+  "show_notification": true
+}

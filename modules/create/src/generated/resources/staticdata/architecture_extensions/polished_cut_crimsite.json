@@ -1,0 +1,16 @@
+{
+  "base_block": "create:polished_cut_crimsite",
+  "map_color": "red",
+  "name": "polished_cut_crimsite",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/polished/crimsite_cut_polished",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

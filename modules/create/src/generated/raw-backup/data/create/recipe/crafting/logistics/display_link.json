@@ -1,0 +1,24 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "A": {
+      "tag": "c:plates/copper"
+    },
+    "C": {
+      "item": "minecraft:redstone_torch"
+    },
+    "S": {
+      "item": "create:brass_casing"
+    }
+  },
+  "pattern": [
+    "C",
+    "S",
+    "A"
+  ],
+  "result": {
+    "count": 1,
+    "id": "create:display_link"
+  }
+}

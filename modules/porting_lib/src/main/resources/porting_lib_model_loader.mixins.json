@@ -1,0 +1,17 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.fabricators_of_create.porting_lib.models.geometry.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "client.BlockModelDeserializerMixin",
+    "client.BlockModelMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "common.TransformationMixin"
+  ],
+  "refmap": "porting_lib-refmap.json"
+}

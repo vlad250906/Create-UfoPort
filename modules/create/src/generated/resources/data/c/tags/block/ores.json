@@ -1,0 +1,16 @@
+{
+  "values": [
+    "create:zinc_ore",
+    "create:deepslate_zinc_ore",
+    "#c:ores/coal",
+    "#c:ores/copper",
+    "#c:ores/diamond",
+    "#c:ores/emerald",
+    "#c:ores/gold",
+    "#c:ores/iron",
+    "#c:ores/lapis",
+    "#c:ores/netherite_scrap",
+    "#c:ores/redstone",
+    "#c:ores/quartz"
+  ]
+}

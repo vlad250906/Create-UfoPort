@@ -1,0 +1,12 @@
+{
+  "values": [
+    {
+      "id": "#minecraft:is_nether",
+      "required": false
+    },
+    {
+      "id": "#forge:is_nether",
+      "required": false
+    }
+  ]
+}

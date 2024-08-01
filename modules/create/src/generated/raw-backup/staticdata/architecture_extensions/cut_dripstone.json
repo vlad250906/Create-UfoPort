@@ -1,0 +1,16 @@
+{
+  "base_block": "create:cut_dripstone",
+  "map_color": "brown_terracotta",
+  "name": "cut_dripstone",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/cut/dripstone_cut",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

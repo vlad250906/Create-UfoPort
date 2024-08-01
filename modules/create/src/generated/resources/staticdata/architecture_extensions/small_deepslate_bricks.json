@@ -1,0 +1,16 @@
+{
+  "base_block": "create:small_deepslate_bricks",
+  "map_color": "deepslate",
+  "name": "small_deepslate_bricks",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/small_brick/deepslate_cut_small_brick",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

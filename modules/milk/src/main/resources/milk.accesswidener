@@ -1,0 +1,64 @@
+accessWidener v2 named
+
+accessible class net/minecraft/client/particle/ParticleEngine$SpriteParticleRegistration
+accessible class net/minecraft/world/level/chunk/PaletteResize
+extendable method net/minecraft/world/entity/Entity positionRider (Lnet/minecraft/world/entity/Entity;Lnet/minecraft/world/entity/Entity$MoveFunction;)V
+accessible class net/minecraft/world/item/crafting/Ingredient$Value
+accessible class net/minecraft/world/item/crafting/Ingredient$ItemValue
+accessible class net/minecraft/world/item/crafting/Ingredient$TagValue
+accessible class net/minecraft/client/renderer/RenderType$CompositeState
+accessible class net/minecraft/client/renderer/RenderType$CompositeRenderType
+accessible method net/minecraft/world/level/block/WeatheringCopper getPrevious (Lnet/minecraft/world/level/block/state/BlockState;)Ljava/util/Optional;
+
+# Mixin can't handle an invoker here thanks to weird generics, so we need this AW'd
+accessible method net/minecraft/client/gui/screens/Screen addRenderableWidget (Lnet/minecraft/client/gui/components/events/GuiEventListener;)Lnet/minecraft/client/gui/components/events/GuiEventListener;
+
+# Can't figure out an invoker with more than 1 constructor
+accessible method net/minecraft/world/item/context/UseOnContext <init> (Lnet/minecraft/world/level/Level;Lnet/minecraft/world/entity/player/Player;Lnet/minecraft/world/InteractionHand;Lnet/minecraft/world/item/ItemStack;Lnet/minecraft/world/phys/BlockHitResult;)V
+
+accessible field net/minecraft/data/tags/TagsProvider$TagAppender builder Lnet/minecraft/tags/TagBuilder;
+
+extendable method net/minecraft/client/gui/components/AbstractWidget render (Lnet/minecraft/client/gui/GuiGraphics;IIF)V
+accessible method net/minecraft/world/entity/vehicle/AbstractMinecart moveAlongTrack (Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/level/block/state/BlockState;)V
+accessible field net/minecraft/client/gui/components/AbstractButton SPRITES Lnet/minecraft/client/gui/components/WidgetSprites;
+accessible field net/minecraft/server/network/ServerCommonPacketListenerImpl connection Lnet/minecraft/network/Connection;
+transitive-accessible method net/minecraft/world/item/crafting/ShapedRecipePattern unpack (Lnet/minecraft/world/item/crafting/ShapedRecipePattern$Data;)Lcom/mojang/serialization/DataResult;
+extendable class net/minecraft/world/level/saveddata/maps/MapDecoration
+
+accessible field net/minecraft/world/effect/MobEffect attributeModifiers Ljava/util/Map;
+accessible class net/minecraft/world/effect/MobEffect$AttributeTemplate
+accessible method net/minecraft/world/level/block/state/BlockBehaviour getSoundType (Lnet/minecraft/world/level/block/state/BlockState;)Lnet/minecraft/world/level/block/SoundType;
+accessible method net/minecraft/world/level/block/state/BlockBehaviour getShape (Lnet/minecraft/world/level/block/state/BlockState;Lnet/minecraft/world/level/BlockGetter;Lnet/minecraft/core/BlockPos;Lnet/minecraft/world/phys/shapes/CollisionContext;)Lnet/minecraft/world/phys/shapes/VoxelShape;
+accessible method net/minecraft/world/level/block/entity/BlockEntity loadAdditional (Lnet/minecraft/nbt/CompoundTag;Lnet/minecraft/core/HolderLookup$Provider;)V
+accessible method net/minecraft/server/packs/FilePackResources <init> (Lnet/minecraft/server/packs/PackLocationInfo;Lnet/minecraft/server/packs/FilePackResources$SharedZipFileAccess;Ljava/lang/String;)V
+mutable field net/minecraft/network/protocol/game/ClientboundMapItemDataPacket STREAM_CODEC Lnet/minecraft/network/codec/StreamCodec;
+accessible class net/minecraft/util/datafix/fixes/ItemStackComponentizationFix$ItemStackData
+
+mutable field net/minecraft/world/level/storage/loot/predicates/CompositeLootItemCondition terms Ljava/util/List;
+mutable field net/minecraft/world/level/storage/loot/entries/LootPoolEntryContainer conditions Ljava/util/List;
+mutable field net/minecraft/world/level/storage/loot/LootPool entries Ljava/util/List;
+mutable field net/minecraft/world/level/storage/loot/LootPool conditions Ljava/util/List;
+mutable field net/minecraft/world/item/crafting/Ingredient values [Lnet/minecraft/world/item/crafting/Ingredient$Value;
+accessible field net/minecraft/world/item/crafting/ShapedRecipe pattern Lnet/minecraft/world/item/crafting/ShapedRecipePattern;
+mutable field com/mojang/blaze3d/vertex/BufferBuilder buffer Lcom/mojang/blaze3d/vertex/ByteBufferBuilder;
+mutable field com/mojang/blaze3d/vertex/BufferBuilder format Lcom/mojang/blaze3d/vertex/VertexFormat;
+mutable field com/mojang/blaze3d/vertex/BufferBuilder mode Lcom/mojang/blaze3d/vertex/VertexFormat$Mode;
+accessible field net/minecraft/world/item/crafting/ShapedRecipePattern data Ljava/util/Optional;
+
+
+# from MilkLib
+transitive-accessible class net/minecraft/world/inventory/BrewingStandMenu$PotionSlot
+accessible class net/minecraft/world/item/alchemy/PotionBrewing$Mix
+accessible method net/minecraft/world/item/alchemy/PotionBrewing$Mix <init> (Lnet/minecraft/core/Holder;Lnet/minecraft/world/item/crafting/Ingredient;Lnet/minecraft/core/Holder;)V
+
+
+
+#from dripstone_fluid_lib
+transitive-accessible class net/minecraft/client/particle/DripParticle$DripstoneFallAndLandParticle
+transitive-accessible method net/minecraft/client/particle/DripParticle$DripstoneFallAndLandParticle <init> (Lnet/minecraft/client/multiplayer/ClientLevel;DDDLnet/minecraft/world/level/material/Fluid;Lnet/minecraft/core/particles/ParticleOptions;)V
+transitive-accessible class net/minecraft/client/particle/DripParticle$DripHangParticle
+transitive-accessible method net/minecraft/client/particle/DripParticle$DripHangParticle <init> (Lnet/minecraft/client/multiplayer/ClientLevel;DDDLnet/minecraft/world/level/material/Fluid;Lnet/minecraft/core/particles/ParticleOptions;)V
+transitive-accessible class net/minecraft/client/particle/ParticleEngine$SpriteParticleRegistration
+transitive-accessible method net/minecraft/client/particle/SplashParticle <init> (Lnet/minecraft/client/multiplayer/ClientLevel;DDDDDD)V
+transitive-accessible method net/minecraft/client/particle/TextureSheetParticle setSprite (Lnet/minecraft/client/renderer/texture/TextureAtlasSprite;)V
+transitive-accessible class net/minecraft/world/level/block/PointedDripstoneBlock$FluidInfo

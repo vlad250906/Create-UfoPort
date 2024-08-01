@@ -1,0 +1,35 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.jozufozu.flywheel.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "client": [
+    "BlockEntityRenderDispatcherAccessor",
+    "BlockEntityTypeMixin",
+    "BufferBuilderMixin",
+    "CameraMixin",
+    "ClientLevelMixin",
+    "ClientMainMixin",
+    "EntityTypeMixin",
+    "FrustumMixin",
+    "GlStateManagerMixin",
+    "LevelRendererAccessor",
+    "LevelRendererMixin",
+    "PausedPartialTickAccessor",
+    "RenderTexturesMixin",
+    "RenderTypeMixin",
+    "fix.FixFabulousDepthMixin",
+    "fix.FixNormalScalingMixin",
+    "instancemanage.ChunkRebuildHooksMixin",
+    "instancemanage.InstanceAddMixin",
+    "instancemanage.InstanceRemoveMixin",
+    "instancemanage.InstanceUpdateMixin",
+    "light.LightUpdateMixin",
+    "light.NetworkLightUpdateMixin",
+    "matrix.PoseStackMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "flywheel-refmap.json"
+}

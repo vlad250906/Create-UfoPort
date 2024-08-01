@@ -1,0 +1,6 @@
+{
+	"parent": "create:block/track/bogey/textures",
+	"porting_lib:loader": "porting_lib:obj",
+	"flip_v": true,
+	"model": "create:models/block/track/bogey/bogey_wheel.obj"
+}

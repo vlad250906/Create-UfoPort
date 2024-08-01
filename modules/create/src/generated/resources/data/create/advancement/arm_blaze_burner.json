@@ -1,0 +1,31 @@
+{
+  "parent": "create:linked_controller",
+  "criteria": {
+    "0": {
+      "conditions": {
+        "ddddd": ""
+      },
+      "trigger": "minecraft:arm_blaze_burner_builtin"
+    }
+  },
+  "display": {
+    "announce_to_chat": false,
+    "description": {
+      "color": "#DBA213",
+      "translate": "advancement.create.arm_blaze_burner.desc"
+    },
+    "icon": {
+      "count": 1,
+      "id": "create:blaze_burner"
+    },
+    "title": {
+      "translate": "advancement.create.arm_blaze_burner"
+    }
+  },
+  "requirements": [
+    [
+      "0"
+    ]
+  ],
+  "sends_telemetry_event": true
+}

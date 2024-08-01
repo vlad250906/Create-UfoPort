@@ -1,0 +1,304 @@
+package com.jozufozu.flywheel.core.model;
+
+import java.util.function.IntPredicate;
+
+import org.joml.Matrix3f;
+import org.joml.Matrix4f;
+import org.joml.Quaternionf;
+import org.joml.Vector3f;
+import org.joml.Vector4f;
+
+import com.jozufozu.flywheel.api.vertex.ShadedVertexList;
+import com.jozufozu.flywheel.api.vertex.VertexList;
+import com.jozufozu.flywheel.util.DiffuseLightCalculator;
+import com.jozufozu.flywheel.util.transform.Transform;
+import com.mojang.blaze3d.vertex.PoseStack;
+import com.mojang.blaze3d.vertex.VertexConsumer;
+
+import net.minecraft.client.renderer.LightTexture;
+import net.minecraft.client.renderer.texture.OverlayTexture;
+import net.minecraft.util.Mth;
+
+public class ModelTransformer {
+
+	private final Model model;
+	private final VertexList reader;
+	private final IntPredicate shadedPredicate;
+
+	public final Context context = new Context();
+
+	public ModelTransformer(Model model) {
+		this.model = model;
+		reader = model.getReader();
+		if (reader instanceof ShadedVertexList shaded) {
+			shadedPredicate = shaded::isShaded;
+		} else {
+			shadedPredicate = index -> true;
+		}
+	}
+
+	public void renderInto(Params params, PoseStack input, VertexConsumer builder) {
+		if (isEmpty())
+			return;
+
+		Vector4f pos = new Vector4f();
+		Vector3f normal = new Vector3f();
+
+		Matrix4f modelMat = new Matrix4f(input.last()
+				.pose());
+		modelMat.mul(params.model);
+
+		Matrix3f normalMat;
+		if (context.fullNormalTransform) {
+			normalMat = new Matrix3f(input.last().normal());
+			normalMat.mul(params.normal);
+		} else {
+			normalMat = new Matrix3f(params.normal);
+		}
+
+		final DiffuseLightCalculator diffuseCalculator = DiffuseLightCalculator.forCurrentLevel();
+
+		final int vertexCount = reader.getVertexCount();
+		for (int i = 0; i < vertexCount; i++) {
+			float x = reader.getX(i);
+			float y = reader.getY(i);
+			float z = reader.getZ(i);
+			pos.set(x, y, z, 1F);
+			pos.mul(modelMat);
+			builder.addVertex(pos.x(), pos.y(), pos.z());
+
+			float normalX = reader.getNX(i);
+			float normalY = reader.getNY(i);
+			float normalZ = reader.getNZ(i);
+
+			normal.set(normalX, normalY, normalZ);
+			normal.mul(normalMat);
+			normal.normalize();
+			float nx = normal.x();
+			float ny = normal.y();
+			float nz = normal.z();
+
+			byte r, g, b, a;
+			if (params.useParamColor) {
+				r = (byte) params.r;
+				g = (byte) params.g;
+				b = (byte) params.b;
+				a = (byte) params.a;
+			} else {
+				r = reader.getR(i);
+				g = reader.getG(i);
+				b = reader.getB(i);
+				a = reader.getA(i);
+			}
+			if (context.outputColorDiffuse) {
+				float instanceDiffuse = diffuseCalculator.getDiffuse(nx, ny, nz, shadedPredicate.test(i));
+				int colorR = transformColor(r, instanceDiffuse);
+				int colorG = transformColor(g, instanceDiffuse);
+				int colorB = transformColor(b, instanceDiffuse);
+				builder.setColor(colorR, colorG, colorB, a);
+			} else {
+				builder.setColor(r, g, b, a);
+			}
+
+			//builder.color(Math.max(0, (int) (nx * 255)), Math.max(0, (int) (ny * 255)), Math.max(0, (int) (nz * 255)), 0xFF);
+			//builder.color(Math.max(0, (int) (normalX * 255)), Math.max(0, (int) (normalY * 255)), Math.max(0, (int) (normalZ * 255)), 0xFF);
+
+			float u = reader.getU(i);
+			float v = reader.getV(i);
+			if (params.spriteShiftFunc != null) {
+				params.spriteShiftFunc.shift(builder, u, v);
+			} else {
+				builder.setUv(u, v);
+			}
+
+			// not always used, but will be ignored by formats that don't use it
+			builder.setOverlay(params.overlay);
+
+			builder.setLight(params.useParamLight ? params.packedLightCoords : reader.getLight(i));
+
+			builder.setNormal(nx, ny, nz);
+
+			//builder.endVertex();
+		}
+	}
+
+	public boolean isEmpty() {
+		return reader.isEmpty();
+	}
+
+	@Override
+	public String toString() {
+		return "ModelTransformer[" + model + ']';
+	}
+
+	public static int transformColor(byte component, float scale) {
+		return Mth.clamp((int) (Byte.toUnsignedInt(component) * scale), 0, 255);
+	}
+
+	public static int transformColor(int component, float scale) {
+		return Mth.clamp((int) (component * scale), 0, 255);
+	}
+
+	@FunctionalInterface
+	public interface SpriteShiftFunc {
+		void shift(VertexConsumer builder, float u, float v);
+	}
+
+	public static class Context {
+		/**
+		 * Do we need to include the PoseStack transforms in our transformation of the normal?
+		 */
+		public boolean fullNormalTransform = false;
+
+		/**
+		 * Do we need to bake diffuse lighting into the output colors?
+		 */
+		public boolean outputColorDiffuse = true;
+	}
+
+	public static class Params implements Transform<Params> {
+
+		// Transform
+		public final Matrix4f model;
+		public final Matrix3f normal;
+
+		// Vertex Coloring
+		public boolean useParamColor;
+		public int r;
+		public int g;
+		public int b;
+		public int a;
+
+		// Vertex Texture Coords
+		public SpriteShiftFunc spriteShiftFunc;
+
+		// Vertex Overlay Color
+		public int overlay;
+
+		// Vertex Lighting
+		public boolean useParamLight;
+		public int packedLightCoords;
+
+		public Params() {
+			model = new Matrix4f();
+			normal = new Matrix3f();
+		}
+
+		public void loadDefault() {
+			model.identity();
+			normal.identity();
+			useParamColor = true;
+			r = 0xFF;
+			g = 0xFF;
+			b = 0xFF;
+			a = 0xFF;
+			spriteShiftFunc = null;
+			overlay = OverlayTexture.NO_OVERLAY;
+			useParamLight = false;
+			packedLightCoords = LightTexture.FULL_BRIGHT;
+		}
+
+		public void load(Params from) {
+			model.set(from.model);
+			normal.set(from.normal);
+			useParamColor = from.useParamColor;
+			r = from.r;
+			g = from.g;
+			b = from.b;
+			a = from.a;
+			spriteShiftFunc = from.spriteShiftFunc;
+			overlay = from.overlay;
+			useParamLight = from.useParamLight;
+			packedLightCoords = from.packedLightCoords;
+		}
+
+		public Params color(int r, int g, int b, int a) {
+			this.useParamColor = true;
+			this.r = r;
+			this.g = g;
+			this.b = b;
+			this.a = a;
+			return this;
+		}
+
+		public Params color(byte r, byte g, byte b, byte a) {
+			this.useParamColor = true;
+			this.r = Byte.toUnsignedInt(r);
+			this.g = Byte.toUnsignedInt(g);
+			this.b = Byte.toUnsignedInt(b);
+			this.a = Byte.toUnsignedInt(a);
+			return this;
+		}
+
+		public Params color(int color) {
+			this.useParamColor = true;
+			this.r = ((color >> 16) & 0xFF);
+			this.g = ((color >> 8) & 0xFF);
+			this.b = (color & 0xFF);
+			this.a = 255;
+			return this;
+		}
+
+		public Params shiftUV(SpriteShiftFunc entry) {
+			this.spriteShiftFunc = entry;
+			return this;
+		}
+
+		public Params overlay(int overlay) {
+			this.overlay = overlay;
+			return this;
+		}
+
+		public Params light(int packedLightCoords) {
+			this.useParamLight = true;
+			this.packedLightCoords = packedLightCoords;
+			return this;
+		}
+
+		@Override
+		public Params multiply(Quaternionf quaternion) {
+			model.rotate(quaternion);
+			normal.rotate(quaternion);
+			return this;
+		}
+
+		@Override
+		public Params scale(float pX, float pY, float pZ) {
+			model.scale(pX, pY, pZ);
+			if (pX == pY && pY == pZ) {
+				if (pX > 0.0F) {
+					return this;
+				}
+
+				normal.scale(-1.0F);
+			}
+
+			float f = 1.0F / pX;
+			float f1 = 1.0F / pY;
+			float f2 = 1.0F / pZ;
+			float f3 = Mth.fastInvCubeRoot(f * f1 * f2);
+			normal.scale(f3 * f, f3 * f1, f3 * f2);
+			return this;
+		}
+
+		@Override
+		public Params translate(double x, double y, double z) {
+			model.translate((float) x, (float) y, (float) z);
+
+			return this;
+		}
+
+		@Override
+		public Params mulPose(Matrix4f pose) {
+			this.model.mul(pose);
+			return this;
+		}
+
+		@Override
+		public Params mulNormal(Matrix3f normal) {
+			this.normal.mul(normal);
+			return this;
+		}
+
+	}
+}

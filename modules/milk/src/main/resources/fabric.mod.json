@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "milk",
+  "version": "1.5.0",
+  "name": "Milk Lib",
+  "description": "Literally just adds milk, to act as a bridge for any other mods that want to do the same. \nPorted up to 1.21 by Vlad2509.",
+  "authors": [
+    "Tropheus Jay",
+    "Vlad2509"
+  ],
+  "contact": {
+    "sources": "https://github.com/TropheusJ/milk-lib"
+  },
+  "icon": "assets/milk/icon.png",
+  "mixins": [
+    "milk.mixins.json",
+    "dripstone_fluid_lib.mixins.json"
+  ],
+  "accessWidener": "milk.accesswidener",
+  "entrypoints": {
+    "main": [
+      "io.github.tropheusj.milk.Milk"
+    ],
+    "client": [
+      "io.github.tropheusj.milk.MilkClient"
+    ]
+  }
+}

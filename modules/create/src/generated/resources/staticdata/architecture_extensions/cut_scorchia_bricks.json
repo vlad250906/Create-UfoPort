@@ -1,0 +1,16 @@
+{
+  "base_block": "create:cut_scorchia_bricks",
+  "map_color": "gray_terracotta",
+  "name": "cut_scorchia_bricks",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/brick/scorchia_cut_brick",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

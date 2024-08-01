@@ -1,0 +1,22 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "immersiveengineering"
+      ]
+    }
+  ],
+  "type": "create:splashing",
+  "ingredients": [
+    {
+      "item": "create:crushed_raw_silver"
+    }
+  ],
+  "results": [
+    {
+      "count": 9,
+      "id": "immersiveengineering:nugget_silver"
+    }
+  ]
+}

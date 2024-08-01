@@ -1,0 +1,18 @@
+{
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "item": "create:raw_zinc"
+    }
+  ],
+  "processingTime": 400,
+  "results": [
+    {
+      "id": "create:crushed_raw_zinc"
+    },
+    {
+      "chance": 0.75,
+      "id": "create:experience_nugget"
+    }
+  ]
+}

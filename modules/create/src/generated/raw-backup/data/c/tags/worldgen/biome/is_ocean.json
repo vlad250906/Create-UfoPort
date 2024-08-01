@@ -1,0 +1,10 @@
+{
+  "values": [
+    {
+      "id": "#minecraft:is_ocean",
+      "required": false
+    },
+    "#c:is_shallow_ocean",
+    "#c:is_deep_ocean"
+  ]
+}

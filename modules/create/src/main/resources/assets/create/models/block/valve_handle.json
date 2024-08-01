@@ -1,0 +1,10 @@
+{
+	"parent": "block/block",
+	"porting_lib:loader": "porting_lib:obj",
+	"flip_v": true,
+	"model": "create:models/block/valve_handle/valve_handle.obj",
+	"textures": {
+		"3": "create:block/valve_handle/valve_handle_copper",
+		"particle": "#3"
+	}
+}

@@ -1,0 +1,16 @@
+{
+  "base_block": "create:cut_veridium",
+  "map_color": "warped_nylium",
+  "name": "cut_veridium",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/cut/veridium_cut",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

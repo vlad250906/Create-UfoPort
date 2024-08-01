@@ -1,0 +1,29 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:tags_populated",
+      "registry": "minecraft:item",
+      "values": [
+        "c:raw_nickel_blocks"
+      ]
+    }
+  ],
+  "type": "create:crushing",
+  "ingredients": [
+    {
+      "tag": "c:raw_nickel_blocks"
+    }
+  ],
+  "processingTime": 400,
+  "results": [
+    {
+      "count": 9,
+      "id": "create:crushed_raw_nickel"
+    },
+    {
+      "chance": 0.75,
+      "count": 9,
+      "id": "create:experience_nugget"
+    }
+  ]
+}

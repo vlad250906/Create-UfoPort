@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 1,
+  "id": "porting_lib",
+  "version": "2.7.0",
+  "name": "Porting Lib",
+  "description": "A collection of utilities for porting mods from Forge to Fabric. \nPorted up to 1.21 by Vlad2509.",
+  "authors": [
+    "The Create Fabric Team",
+    "Vlad2509"
+  ],
+  "contact": {
+    "sources": "https://github.com/Fabricators-of-Create/Porting-Lib"
+  },
+  "license": "LGPL",
+  "icon": "assets/porting_lib/icon.png",
+  "environment": "*",
+  "depends": {
+    "minecraft": "1.21",
+    "fabricloader": ">=0.16.0",
+    "fabric-api": ">=0.100.7+1.21",
+    "forgeconfigapiport": ">=21.0.5"
+  },
+  "mixins": [
+	"porting_lib_accessors.mixins.json",
+		"porting_lib_base.mixins.json",
+		"porting_lib_client_events.mixins.json",
+		"porting_lib_common.mixins.json",
+		"porting_lib_entity.mixins.json",
+		"porting_lib_extensions.mixins.json",
+		"porting_lib_fluids.mixins.json",
+		"porting_lib_models.mixins.json",
+		"porting_lib_tags.mixins.json",
+		"porting_lib_transfer.mixins.json",
+		"porting_lib_tool_actions.mixins.json",
+		"porting_lib_model_generators.mixins.json",
+		"porting_lib_brewing.mixins.json",
+		"porting_lib_config.mixins.json",
+		"porting_lib_model_loader.mixins.json",
+		"porting_lib_data.mixins.json",
+		"porting_lib_model_materials.mixins.json"
+  ],
+  "accessWidener": "porting_lib.accesswidener",
+  "entrypoints": {
+    "main": [
+      "io.github.fabricators_of_create.porting_lib.PortingLibBase",
+      "io.github.fabricators_of_create.porting_lib.config.PortingLibConfig",
+      "io.github.fabricators_of_create.porting_lib.entity.PortingLibEntity",
+      "io.github.fabricators_of_create.porting_lib.tags.Tags",
+      "io.github.fabricators_of_create.porting_lib.fluids.PortingLibFluids",
+      "io.github.fabricators_of_create.porting_lib.tool.loot.CanToolPerformAction::init",
+      "io.github.fabricators_of_create.porting_lib.PortingLibUtility"
+    ],
+    "client": [
+      "io.github.fabricators_of_create.porting_lib.PortingLibClient",
+      "io.github.fabricators_of_create.porting_lib.config.client.PortingLibConfigClient",
+      "io.github.fabricators_of_create.porting_lib.entity.client.PortingLibEntityClient",
+      "io.github.fabricators_of_create.porting_lib.models.PortingLibModels",
+      "io.github.fabricators_of_create.porting_lib.PortingLibObjLoader",
+      "io.github.fabricators_of_create.porting_lib.PortingLibTransfer"
+    ],
+    "preLaunch": [
+      "com.llamalad7.mixinextras.MixinExtrasBootstrap::init"
+    ],
+    "fabric-datagen": [
+      "io.github.fabricators_of_create.porting_lib.tool.data.ToolActionsData",
+      "io.github.fabricators_of_create.porting_lib.tags.data.DataGenerators"
+    ]
+  },
+  "custom": {
+    "loom:injected_interfaces": {
+      "net/minecraft/class_793": ["io/github/fabricators_of_create/porting_lib/models/geometry/extensions/BlockModelExtensions"],
+      "net/minecraft/class_4590": ["io/github/fabricators_of_create/porting_lib/models/geometry/extensions/TransformationExtensions"],
+	"net/minecraft/class_3610": [
+        "io/github/fabricators_of_create/porting_lib/fluids/extensions/FluidStateExtension"
+      ],
+      "net/minecraft/class_3611": [
+        "io/github/fabricators_of_create/porting_lib/fluids/extensions/FluidExtension"
+      ],	
+      "net/minecraft/class_1076": ["io/github/fabricators_of_create/porting_lib/common/extensions/LanguageManagerExtensions"],
+      "net/minecraft/class_2211": ["io/github/fabricators_of_create/porting_lib/common/util/IPlantable"],
+      "net/minecraft/class_2266": ["io/github/fabricators_of_create/porting_lib/common/util/IPlantable"],
+      "net/minecraft/class_2523": ["io/github/fabricators_of_create/porting_lib/common/util/IPlantable"],
+      "net/minecraft/class_2261": ["io/github/fabricators_of_create/porting_lib/common/util/IPlantable"],
+      "net/minecraft/class_1767": ["io/github/fabricators_of_create/porting_lib/tags/extensions/DyeExtension"],
+      "net/minecraft/class_727": [ "io/github/fabricators_of_create/porting_lib/models/extensions/TerrainParticleExtensions" ],
+      "net/minecraft/class_2388": [ "io/github/fabricators_of_create/porting_lib/models/extensions/BlockParticleOptionExtensions" ],
+      "net/minecraft/class_20": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/MapDecorationExtensions"],
+      "net/minecraft/class_293": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/VertexFormatExtensions"],
+      "net/minecraft/class_276": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/RenderTargetExtensions"],
+      "net/minecraft/class_703": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/ParticleExtensions"],
+      "net/minecraft/class_804": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/ItemTransformExtensions"],
+      "net/minecraft/class_1044": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/AbstractTextureExtensions"],
+      "net/minecraft/class_1293": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/MobEffectInstanceExtensions"],
+      "net/minecraft/class_1438": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/IShearable"],
+      "net/minecraft/class_1472": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/IShearable"],
+      "net/minecraft/class_1473": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/IShearable"],
+      "net/minecraft/class_1735": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/SlotExtensions"],
+      "net/minecraft/class_1747": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/BlockItemExtensions"],
+      "net/minecraft/class_1799": [
+        "io/github/fabricators_of_create/porting_lib/extensions/extensions/ItemStackExtensions",
+        "io/github/fabricators_of_create/porting_lib/extensions/extensions/INBTSerializableCompound",
+	"io/github/fabricators_of_create/porting_lib/tool/extensions/ItemStackExtensions"
+      ],
+      "net/minecraft/class_1832": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/TierExtensions"],
+      "net/minecraft/class_2241": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/BaseRailBlockExtensions"],
+      "net/minecraft/class_2248": [
+	"io/github/fabricators_of_create/porting_lib/extensions/extensions/BlockExtensions",
+        "io/github/fabricators_of_create/porting_lib/tool/extensions/BlockExtensions"
+      ],
+      "net/minecraft/class_2311": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/IShearable"],
+      "net/minecraft/class_2397": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/IShearable"],
+      "net/minecraft/class_2474/class_5124": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/TagAppenderExtensions"],
+      "net/minecraft/class_2476": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/IShearable"],
+      "net/minecraft/class_2526": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/IShearable"],
+      "net/minecraft/class_2541": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/IShearable"],
+      "net/minecraft/class_2560": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/IShearable"],
+      "net/minecraft/class_2586": [
+        "io/github/fabricators_of_create/porting_lib/extensions/extensions/BlockEntityExtensions",
+        "io/github/fabricators_of_create/porting_lib/extensions/extensions/INBTSerializableCompound"
+      ],
+      "net/minecraft/class_2960": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/ResourceLocationExtensions"],
+      "net/minecraft/class_3491": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/StructureProcessorExtensions"],
+      "net/minecraft/class_3499": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/StructureTemplateExtensions"],
+      "net/minecraft/class_3665": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/ModelStateExtensions"],
+      "net/minecraft/class_3727": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/EntityCollisionContextExtensions"],
+      "net/minecraft/class_4184": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/CameraExtensions"],
+      "net/minecraft/class_4538": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/LevelReaderExtensions"],
+      "net/minecraft/class_4587": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/PoseStackExtensions"],
+      "net/minecraft/class_5294": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/DimensionSpecialEffectsExtensions"],
+      "net/minecraft/class_7764": ["io/github/fabricators_of_create/porting_lib/extensions/extensions/SpriteContentsExtensions"],	
+      "net/minecraft/class_1291": [
+	"io/github/fabricators_of_create/porting_lib/entity/extensions/MobEffectExtensions",
+	"io/github/fabricators_of_create/porting_lib/extensions/extensions/MobEffectExtensions"
+      ],
+      "net/minecraft/class_1297": [
+	"io/github/fabricators_of_create/porting_lib/entity/extensions/EntityExtensions",
+	"io/github/fabricators_of_create/porting_lib/extensions/extensions/INBTSerializableCompound"
+      ],
+      "net/minecraft/class_1621": ["io/github/fabricators_of_create/porting_lib/entity/extensions/SlimeExtension"],
+      "net/minecraft/class_1792": [
+	"io/github/fabricators_of_create/porting_lib/entity/extensions/ItemExtensions",
+	"io/github/fabricators_of_create/porting_lib/extensions/extensions/ItemExtensions"
+      ],
+      "net/minecraft/class_1937": [
+	"io/github/fabricators_of_create/porting_lib/entity/extensions/LevelExtensions",
+        "io/github/fabricators_of_create/porting_lib/extensions/extensions/LevelExtensions"
+      ],
+      "net/minecraft/class_1688": [
+	"io/github/fabricators_of_create/porting_lib/entity/extensions/AbstractMinecartExtensions"
+      ],
+      "net/minecraft/class_2680": [
+	"io/github/fabricators_of_create/porting_lib/extensions/BaseBlockStateExtension",
+	"io/github/fabricators_of_create/porting_lib/extensions/extensions/BlockStateExtensions",
+	"io/github/fabricators_of_create/porting_lib/tool/extensions/BlockStateExtensions"
+      ]
+    },
+    "modmenu": {
+      "badges": [
+        "library"
+      ]
+    }
+  }
+}

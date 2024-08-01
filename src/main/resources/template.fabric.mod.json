@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "template",
+  "version": "${version}",
+  "name": "TEMPLATE",
+  "description": "TEMPLATE",
+  "authors": [
+    "Fabricators of Create",
+    "Creators of Create",
+    "Pepper_Bell",
+    "AlphaMode",
+    "Jozufozu",
+    "TexTrue",
+    "DM-Earth",
+    "tterrag1098",
+    "TropheusJ",
+    "Vlad2509"
+  ],
+  "contact": {
+    "issues": "https://github.com/Fabricators-of-Create/Create/issues",
+    "sources": "https://github.com/Fabricators-of-Create/Create"
+  },
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": ">=${fabric_version}",
+    "minecraft": "${minecraft_dependency}",
+    "java": ">=21"
+  },
+  "custom": {
+    "modmenu": {
+      "parent": {
+        "id": "create_ufoport",
+        "name": "Create",
+        "description": "Technology that empowers the player. \nPorted up to 1.21 by Vlad2509.",
+  	"icon": "assets/create/logo.png"
+      }
+    }
+  }
+}

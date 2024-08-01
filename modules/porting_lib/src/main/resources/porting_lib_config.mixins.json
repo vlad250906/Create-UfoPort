@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "priority": 951,
+  "package": "io.github.fabricators_of_create.porting_lib.config.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "injectors": {
+    "defaultRequire": 1,
+    "maxShiftBy": 5
+  },
+  "client": [
+    "client.MinecraftMixin"
+  ],
+  "mixins": [
+    "server.MainMixin"
+  ],
+  "refmap": "porting_lib-refmap.json"
+}

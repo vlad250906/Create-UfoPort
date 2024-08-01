@@ -1,0 +1,16 @@
+{
+  "base_block": "create:polished_cut_diorite",
+  "map_color": "quartz",
+  "name": "polished_cut_diorite",
+  "recipes": "stonecutting",
+  "textures": "create:block/palettes/stone_types/polished/diorite_cut_polished",
+  "types_to_generate": [
+    "arch",
+    "octagonal_column",
+    "round_arch",
+    "roof",
+    "wall_column",
+    "wall_post",
+    "facade"
+  ]
+}

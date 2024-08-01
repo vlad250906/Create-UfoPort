@@ -1,0 +1,21 @@
+{
+  "anvil_cost": 4,
+  "description": {
+    "translate": "enchantment.create.potato_recovery"
+  },
+  "exclusive_set": "#create:exclusive_set/nothing",
+  "max_cost": {
+    "base": 40,
+    "per_level_above_first": 10
+  },
+  "max_level": 3,
+  "min_cost": {
+    "base": 10,
+    "per_level_above_first": 10
+  },
+  "slots": [
+    "chest"
+  ],
+  "supported_items": "#create:enchantable/potato_cannon",
+  "weight": 2
+}

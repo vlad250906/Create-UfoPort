@@ -1,0 +1,15 @@
+{
+  "type": "create:mixing",
+  "heatRequirement": "heated",
+  "ingredients": [
+    {
+      "item": "create:bar_of_chocolate"
+    }
+  ],
+  "results": [
+    {
+      "amount": 27000,
+      "fluid": "create:chocolate"
+    }
+  ]
+}

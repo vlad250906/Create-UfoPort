@@ -1,0 +1,20 @@
+{
+  "fabric:load_conditions": [
+    {
+      "condition": "fabric:all_mods_loaded",
+      "values": [
+        "hexcasting"
+      ]
+    }
+  ],
+  "type": "create:cutting",
+  "ingredients": [
+    []
+  ],
+  "processingTime": 50,
+  "results": [
+    {
+      "id": "hexcasting:stripped_edified_log"
+    }
+  ]
+}

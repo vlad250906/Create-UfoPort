@@ -1,0 +1,30 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "io.github.fabricators_of_create.porting_lib.extensions.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "common.BlockMixin",
+    "common.ItemMixin",
+    "common.MobEffectMixin",
+    "common.SheepMixin",
+    "common.SlotMixin",
+    "common.TrunkPlacerMixin",
+    "common.VineBlockMixin",
+    "common.WebBlockMixin"
+  ],
+  "client": [
+    "client.DimensionSpecialEffectsMixin",
+    "client.ItemTransformDeserializerMixin",
+    "client.ItemTransformMixin",
+    "client.LevelRendererMixin",
+    "client.LightTextureMixin",
+    "client.PoseStackMixin",
+    "client.SpriteContentsMixin",
+    "client.VertexFormatMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "refmap": "porting_lib-refmap.json"
+}
