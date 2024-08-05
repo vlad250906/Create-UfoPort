@@ -2,9 +2,6 @@ package com.simibubi.create.foundation.events;
 
 import java.util.concurrent.Executor;
 
-
-import io.github.fabricators_of_create.porting_lib.entity.events.LivingEntityEvents;
-
 import org.jetbrains.annotations.Nullable;
 
 import com.mojang.brigadier.CommandDispatcher;
@@ -32,7 +29,6 @@ import com.simibubi.create.content.equipment.wrench.WrenchEventHandler;
 import com.simibubi.create.content.equipment.wrench.WrenchItem;
 import com.simibubi.create.content.equipment.zapper.ZapperInteractionHandler;
 import com.simibubi.create.content.equipment.zapper.ZapperItem;
-import com.simibubi.create.content.kinetics.belt.BeltHelper;
 import com.simibubi.create.content.fluids.FluidBottleItemHook;
 import com.simibubi.create.content.fluids.FluidReactions;
 import com.simibubi.create.content.kinetics.belt.BeltHelper;
@@ -53,9 +49,11 @@ import com.simibubi.create.foundation.utility.ServerSpeedProvider;
 import com.simibubi.create.foundation.utility.WorldAttached;
 import com.simibubi.create.infrastructure.command.AllCommands;
 
+import io.github.fabricators_of_create.porting_lib.PortingLibBase;
 import io.github.fabricators_of_create.porting_lib.entity.events.EntityDataEvents;
 import io.github.fabricators_of_create.porting_lib.entity.events.EntityEvents;
 import io.github.fabricators_of_create.porting_lib.entity.events.EntityMountEvents;
+import io.github.fabricators_of_create.porting_lib.entity.events.LivingEntityEvents;
 import io.github.fabricators_of_create.porting_lib.event.common.BlockEvents;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerChunkEvents;
@@ -79,6 +77,7 @@ import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.network.ServerGamePacketListenerImpl;
 import net.minecraft.server.packs.PackType;
@@ -166,6 +165,10 @@ public class CommonEvents {
 	}
 
 	public static void onLoadWorld(Executor executor, LevelAccessor world) {
+		if(world instanceof ServerLevel level) {
+			Create.serverLevel = level;
+			PortingLibBase.serverLevel = level;
+		}
 		Create.REDSTONE_LINK_NETWORK_HANDLER.onLoadWorld(world);
 		Create.TORQUE_PROPAGATOR.onLoadWorld(world);
 		Create.RAILWAYS.levelLoaded(world);

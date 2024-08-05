@@ -40,7 +40,7 @@ public class PortingLibBase implements ModInitializer {
 	public static final Logger LOGGER = LoggerFactory.getLogger("Porting Lib Base");
 	
 	public static DataComponentType<Integer> TOOLTIP_HIDE = null;
-	private static Level serverLevel = null;
+	public static Level serverLevel = null;
 	
 	private static <T> DataComponentType<T> register(String name, UnaryOperator<DataComponentType.Builder<T>> builder) {
         return Registry.register(BuiltInRegistries.DATA_COMPONENT_TYPE, name, (builder.apply(DataComponentType.builder())).build());

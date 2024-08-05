@@ -82,7 +82,7 @@ public class Create implements ModInitializer {
 	 */
 	public static final CreateRegistrate REGISTRATE = CreateRegistrate.create(ID);
 	private static PotionBrewing brewing = null;
-	private static Level serverLevel = null;
+	public static Level serverLevel = null;
 
 	static {
 		REGISTRATE.setTooltipModifierFactory(item -> {
